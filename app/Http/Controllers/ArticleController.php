@@ -36,7 +36,7 @@ class ArticleController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => 'required|unique:article|max:100',
+            'title' => 'required|unique:articles|max:100',
             'description' => 'required',
         ]);
 
@@ -76,7 +76,7 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'title' => 'required|unique:article|max:100',
+            'title' => 'required|unique:articles|max:100',
             'description' => 'required',
         ]);
         $article->title = $request->title;
